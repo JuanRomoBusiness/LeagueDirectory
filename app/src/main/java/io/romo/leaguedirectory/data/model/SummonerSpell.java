@@ -9,7 +9,8 @@ public class SummonerSpell {
     private int id;
     private String name;
     private List<Double> cooldown;
-    private int summonerLevel;
+    @SerializedName("summonerLevel")
+    private int requiredSummonerLevel;
     @SerializedName("modes")
     private List<GameMode> gameModes;
     private String description;
@@ -19,12 +20,12 @@ public class SummonerSpell {
 
     }
 
-    public SummonerSpell(int id, String name, List<Double> cooldown, int summonerLevel,
+    public SummonerSpell(int id, String name, List<Double> cooldown, int requiredSummonerLevel,
                          List<GameMode> gameModes, String description, Image image) {
         this.id = id;
         this.name = name;
         this.cooldown = cooldown;
-        this.summonerLevel = summonerLevel;
+        this.requiredSummonerLevel = requiredSummonerLevel;
         this.gameModes = gameModes;
         this.description = description;
         this.image = image;
@@ -54,12 +55,12 @@ public class SummonerSpell {
         this.cooldown = cooldown;
     }
 
-    public int getSummonerLevel() {
-        return summonerLevel;
+    public int getRequiredSummonerLevel() {
+        return requiredSummonerLevel;
     }
 
-    public void setSummonerLevel(int summonerLevel) {
-        this.summonerLevel = summonerLevel;
+    public void setRequiredSummonerLevel(int requiredSummonerLevel) {
+        this.requiredSummonerLevel = requiredSummonerLevel;
     }
 
     public List<GameMode> getGameModes() {

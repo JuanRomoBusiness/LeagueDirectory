@@ -2,13 +2,13 @@ package io.romo.leaguedirectory.data.model;
 
 public class Image {
 
-    public String full;
-    public String group;
-    public String sprite;
-    public int h;
-    public int w;
-    public int y;
-    public int x;
+    private String full;
+    private String group;
+    private String sprite;
+    private int h;
+    private int w;
+    private int y;
+    private int x;
 
     public Image(String full, String group, String sprite, int h, int w, int y, int x) {
         full = full;
