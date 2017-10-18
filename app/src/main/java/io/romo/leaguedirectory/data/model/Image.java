@@ -11,13 +11,13 @@ public class Image {
     private int x;
 
     public Image(String full, String group, String sprite, int h, int w, int y, int x) {
-        full = full;
-        group = group;
-        sprite = sprite;
-        h = h;
-        w = w;
-        y = y;
-        x = x;
+        this.full = full;
+        this.group = group;
+        this.sprite = sprite;
+        this.h = h;
+        this.w = w;
+        this.y = y;
+        this.x = x;
     }
 
     public String getFull() {
