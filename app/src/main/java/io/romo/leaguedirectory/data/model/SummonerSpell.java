@@ -1,16 +1,17 @@
 package io.romo.leaguedirectory.data.model;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SummonerSpell {
+public class SummonerSpell implements Comparable<SummonerSpell> {
 
     private int id;
     private String name;
     private List<Double> cooldown;
-    @SerializedName("summonerLevel")
-    private int requiredSummonerLevel;
+    private int summonerLevel;
     @SerializedName("modes")
     private List<GameMode> gameModes;
     private String description;
@@ -20,12 +21,12 @@ public class SummonerSpell {
 
     }
 
-    public SummonerSpell(int id, String name, List<Double> cooldown, int requiredSummonerLevel,
+    public SummonerSpell(int id, String name, List<Double> cooldown, int summonerLevel,
                          List<GameMode> gameModes, String description, Image image) {
         this.id = id;
         this.name = name;
         this.cooldown = cooldown;
-        this.requiredSummonerLevel = requiredSummonerLevel;
+        this.summonerLevel = summonerLevel;
         this.gameModes = gameModes;
         this.description = description;
         this.image = image;
@@ -55,12 +56,12 @@ public class SummonerSpell {
         this.cooldown = cooldown;
     }
 
-    public int getRequiredSummonerLevel() {
-        return requiredSummonerLevel;
+    public int getSummonerLevel() {
+        return summonerLevel;
     }
 
-    public void setRequiredSummonerLevel(int requiredSummonerLevel) {
-        this.requiredSummonerLevel = requiredSummonerLevel;
+    public void setSummonerLevel(int summonerLevel) {
+        this.summonerLevel = summonerLevel;
     }
 
     public List<GameMode> getGameModes() {
@@ -85,5 +86,11 @@ public class SummonerSpell {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    @Override
+    public int compareTo(@NonNull SummonerSpell summonerSpell) {
+        int levelCmp = Integer.compare(summonerLevel, summonerSpell.summonerLevel);
+        return (levelCmp != 0 ? levelCmp : name.compareTo(summonerSpell.name));
     }
 }
